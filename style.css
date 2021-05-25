@@ -1,0 +1,275 @@
+*,
+*::before,
+*::after {
+  -webkit-box-sizing: inherit;
+  box-sizing: inherit;
+  margin: 0;
+  padding: 0;
+  font-family: 'KoHo', sans-serif;
+}
+body {
+  overflow-x: hidden;
+}
+.container{
+  overflow: hidden;
+}
+
+.game_layout{
+  background-color: #FFCCFF;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.title{
+  display: flex;
+  align-self: center;
+  font-size: 90px;
+  padding-bottom: 50px;
+  /* transform: translateY(-80%); */
+}
+
+.choose{
+  display: flex;
+  justify-content: center;
+  cursor: pointer;
+}
+.play{
+  display: flex;
+  justify-content: center;
+  align-self: center;
+  width: 200px;
+  font-size: 50px;
+  border: 2px solid black;
+  background-color: rgba(0, 0, 0, 0.2);
+  border-radius: 30px;
+  margin: 40px;
+  cursor: pointer;
+  transition: 0.4s;
+}
+.play:hover{
+  background-color: black;
+  color: rgb(226,171,176);
+  animation: infinite playShake 1s linear;
+  animation-delay: 0.5s;
+}
+.statistic{
+  display: flex;
+  flex-direction: column;
+  align-self: center;
+  width: 200px;
+  border-radius: 30px;
+  padding: 20px;
+  border: 2px solid black;
+  background-color: rgba(0, 0, 0, 0.2);
+  font-size: 20px;
+}
+
+.stat{
+  display: flex;
+  justify-content: space-between;
+  width: 200px;  
+}
+
+
+.chooseHand{
+animation: infinite handShake 1s linear;
+}
+
+.img{
+  transition: 0.2s;
+}
+
+
+@keyframes handShake{
+  0% {transform: rotateZ(0deg)   translateY(-20%)}
+  25% {transform: rotateZ(-10deg)translateY(-20%)}
+  50% {transform: rotateZ(0deg)  translateY(-20%)}
+  75% {transform: rotateZ(10deg) translateY(-20%)}
+  100% {transform: rotateZ(0deg) translateY(-20%)}
+}
+
+
+
+
+
+
+@keyframes playShake{
+  0% {transform: rotateZ(0deg)}
+  25% {transform: rotateZ(-5deg)}
+  50% {transform: rotateZ(0deg)}
+  75% {transform: rotateZ(5deg)}
+  100% {transform: rotateZ(0deg)}
+}
+
+
+.fight_layout{
+  position: absolute;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  display: none;
+}
+.boxes{
+  transform: rotateZ(40deg) scale(2.5);
+  overflow: hidden;
+}
+.color_box{
+  float: left;
+  position: relative;
+  width: 50%;
+  height: 100vh;
+}
+.box_one{
+  background-color: #FFAAFF;
+  transform: translateX(0%);
+  border: 4px black solid;
+  box-sizing: border-box;
+  transition: 0.2s;
+  animation: none 0.4s linear;
+}
+
+.box_two{
+  background-color:#DD66CC;
+  box-sizing: border-box;
+  border: 4px black solid;
+  transform: translateX(0%);
+  transition: 0.2s;
+  animation: none 0.4s linear;
+}
+
+.computer{
+  top: 0;
+  left: 0;
+  transform: translateX(0%);
+  animation: none 0.2s linear;
+}
+
+.you{
+  bottom: 0;
+  right: 0;
+  transform: translateX(0%);
+  animation: none 0.2s linear;
+}
+.user{
+  padding: 40px;
+  position: fixed;
+  font-size: 90px;
+  transition: 0.2s;
+}
+
+
+
+
+
+@keyframes boxLeft{
+  0% {transform: translateX(-50%);}
+  100%{transform: translateX(0%);}
+}
+@keyframes boxRight{
+  0% {transform: translateX(50%);}
+  100%{transform: translateX(0%);}
+}
+
+
+@keyframes textLeft{
+  0% {transform: translateX(-100%);}
+  100%{transform: translateX(0%);}
+}
+
+
+@keyframes textRight{
+  0% {transform: translateX(100%);}
+  100% {transform: translateX(0%);}
+}
+
+.main_fight{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translateX(-50%) translateY(-50%);
+  z-index: 3;
+  display: flex;
+  justify-content: center;
+  /* overflow: hidden; */
+}
+
+.player_img{
+  animation: none 2s linear infinity;
+  z-index: 3;
+  transform: translateX(-50%) scale(1.2);
+}
+.ai_img{
+  animation: none 2s linear infinity;
+  z-index: 3;
+  transform: translateX(50%) scale(1.2);
+}
+.player_img img{
+  animation: none 0.5s linear infinity;
+  animation-delay: 1s;
+}
+.ai_img img{
+  animation: none 0.5s linear infinity;
+  animation-delay: 1s;
+}
+@keyframes playerHand{
+  0% {transform: translateX(500%) translateY(-500%) scale(1.2);}
+  40% {transform: translateX(50%) scale(1.2);}
+  60% {transform: translateX(50%) scale(1.2);}
+  100% {transform: translateX(-50%) scale(1.2);}
+}
+
+@keyframes aiHand{
+  0% {transform: translateX(-500%) translateY(500%) scale(1.2);}
+  40% {transform: translateX(-50%) scale(1.2);}
+  60% {transform: translateX(-50%) scale(1.2);}
+  100% {transform: translateX(50%) scale(1.2);}
+}
+
+@keyframes winner{
+  0% {transform: scale(1.2);}
+  100% {transform: scale(1.5);}
+}
+
+
+
+
+.end_text{
+  position: absolute;
+  z-index: 3;
+  top: 70%;
+  left: 50%;
+  transform: translateX(-50%) translateY(-50%);
+  font-size: 80px;
+  -webkit-text-stroke: 2px white;
+  animation: none 2s linear infinity;
+}
+
+
+@keyframes endText{
+  0% {transform: translateX(-50%) translateY(500%);}
+  100% {transform: translateX(-50%) translateY(-50%);}
+}
+
+
+
+.transition_layout{
+  position: absolute;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  display: none;
+}
+.transition_box{
+  background-color: #ff79ff;
+  width: 100%;
+  height: 100%;
+  transform: translateX(-100%);
+  animation: none 0.6s linear;
+}
+
+
+@keyframes transmitionAnimation{
+  0%{transform: translateY(-90%);}
+  100%{transform: translateY(90%);}
+}
